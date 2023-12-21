@@ -20,7 +20,7 @@ class PostSeeder extends Seeder
     {
             DB::table('posts')->insert([
                 'title' => '作品名',
-                'body' => '命名はデータを基準に考える',
+                'body' => '詳細',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
                 'category_id' => 1,

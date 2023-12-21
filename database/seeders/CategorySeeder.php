@@ -17,9 +17,16 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-                'name' => '作品名',
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
+                [
+                    'name' => '映画',
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ],
+                [
+                    'name' => 'ドラマ',
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ],
             ]);
     }
 }
