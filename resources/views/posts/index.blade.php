@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
+<x-app-layout>
         <h1>HPR~聖地投稿アプリ~</h1>
         <a href='/posts/create'>create</a>
         <div class='posts'>
@@ -18,17 +10,18 @@
                     <p class='body'>{{ $post->body }}</p>
                 </div>
                 <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                @if($post->user_id == Auth::id())
                 <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                 @csrf
                 @method('DELETE')
                     <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
                 </form>
+                @endif
             @endforeach
         </div>
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
-    </body>
     <script>
     function deletePost(id) {
         'use strict'
@@ -38,4 +31,4 @@
         }
     }
     </script>
-</html>
+</x-app-layout>
