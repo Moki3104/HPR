@@ -3,13 +3,18 @@
         <a href='/posts/create'>create</a>
         <div class='posts'>
             @foreach ($posts as $post)
+                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                 <div class='post'>
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
                 </div>
-                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                @if($post->image_url)
+                <div>
+                    <img class="size-1/2" src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                </div>
+                @endif
             @endforeach
         </div>
         <div class='paginate'>
