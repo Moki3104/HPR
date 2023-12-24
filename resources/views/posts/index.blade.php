@@ -4,6 +4,7 @@
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
+                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
@@ -14,7 +15,7 @@
                     <img class="size-1/2" src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
                 </div>
                 @endif
-                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                
                 @if($post->user_id == Auth::id())
                 <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                 @csrf
