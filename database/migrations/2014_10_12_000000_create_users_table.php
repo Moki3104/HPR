@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('image_path')->nullable();
+            $table->string('image_url')->nullable()->default('https://res.cloudinary.com/dcdk8a1iu/image/upload/v1703397795/iirfznchey7xede2otrq.png');
             $table->rememberToken();
             $table->timestamps();
         });
