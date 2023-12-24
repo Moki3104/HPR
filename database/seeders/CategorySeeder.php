@@ -27,6 +27,26 @@ class CategorySeeder extends Seeder
                     'created_at' => new DateTime(),
                     'updated_at' => new DateTime(),
                 ],
+                [
+                    'name' => 'アニメ',
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ],
+                [
+                    'name' => 'MV',
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ],
+                [
+                    'name' => 'バラエティー',
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ],
+                [
+                    'name' => 'その他',
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ],
             ]);
     }
 }

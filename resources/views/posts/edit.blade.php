@@ -20,6 +20,14 @@
                 <h2>詳細</h2>
                 <textarea name="post[body]" placeholder="その場所について（どのシーンか）、感想、周辺情報...etc">{{ $post->body }}</textarea>
                 </div>
+                @if($post->image_url)
+                <div>
+                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                </div>
+                @endif
+                <div class="image">
+                    <input type="file" name="image">
+                </div>
                 <input type="submit" value="投稿"/>
             </form>
         </div>
