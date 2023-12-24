@@ -7,6 +7,7 @@ use App\Models\Post;  //use宣言は外部にあるクラスをPostController内
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
 use Cloudinary;
@@ -34,6 +35,11 @@ class PostController extends Controller
     public function create(Category $category)
     {
         return view('posts.create')->with(['categories' => $category->get()]);
+    }
+    
+    public function comment(Comment $comment)
+    {
+        return view('posts.comment');
     }
     
     public function edit(Post $post, Category $category)

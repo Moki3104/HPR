@@ -13,7 +13,7 @@
                     <img class="size-1/2" src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
             </div>
             @endif
-            
+            <div class="comment"><a href="/posts/{{ $post->id }}/comment">コメント</a></div>
         </div>
         <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
         <div class="footer">
