@@ -9,7 +9,7 @@
             </div>
             @if($post->image_url)
             <div>
-                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                    <img class="size-1/2" src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
             </div>
             @endif
             <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
