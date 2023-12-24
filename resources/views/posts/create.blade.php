@@ -1,6 +1,6 @@
 <x-app-layout>
         <h1>HPR~聖地投稿アプリ~</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
              <div class="category">
                 <h3>ジャンル</h3>
@@ -19,6 +19,9 @@
                 <h2>詳細</h2>
                 <textarea name="post[body]" placeholder="その場所について（どのシーンか）、感想、周辺情報...etc">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+            </div>
+            <div class="image">
+                <input type="file" name="image">
             </div>
             <input type="submit" value="投稿"/>
         </form>
