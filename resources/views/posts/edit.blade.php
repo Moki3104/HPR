@@ -18,7 +18,7 @@
             </div>
             <div class="content_body">
                 <h2>詳細</h2>
-                <textarea name="post[body]" placeholder="その場所について（どのシーンか）、感想、周辺情報...etc">{{ $post->body }}</textarea>
+                <textarea name="post[body]" rows="6" cols="40" placeholder="その場所について（どのシーンか）、感想、周辺情報...etc">{{ $post->body }}</textarea>
                 </div>
                 @if($post->image_url)
                 <div>
