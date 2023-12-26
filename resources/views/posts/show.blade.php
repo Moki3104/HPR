@@ -15,6 +15,9 @@
             @endif
             <div class="comment"><a href="/posts/{{ $post->id }}/comment">コメント</a></div>
         </div>
+            @foreach($post->comments as $comment)
+                <p>{{ $comment->comment }}</p>
+            @endforeach
         <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
         <div class="footer">
             <a href="/">戻る</a>

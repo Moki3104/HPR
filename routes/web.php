@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/posts/{post}/comment', [PostController::class, 'comment']);
     
+    Route::post('/posts/{post}', [PostController::class, 'comment_store']);
+    
     Route::get('/posts/{post}', [PostController::class ,'show']);
     
     Route::delete('/posts/{post}', [PostController::class,'delete']);

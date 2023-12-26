@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\CommentRequest;
 use Cloudinary;
 
 class PostController extends Controller
@@ -37,9 +38,19 @@ class PostController extends Controller
         return view('posts.create')->with(['categories' => $category->get()]);
     }
     
-    public function comment(Comment $comment)
+    public function comment(Post $post, Comment $comment)
     {
-        return view('posts.comment');
+        return view('comments.comment')->with(['post' => $post]);
+    }
+    
+    public function comment_store(CommentRequest $request, Post $post) {
+        $validated = $request->validated();
+        $comment = new Comment();
+        $comment->user_id = auth()->user()->id;
+        $comment->post_id = $post->id;
+        $comment->fill($validated)->save();
+
+        return redirect('posts/'. $post->id);
     }
     
     public function edit(Post $post, Category $category)
